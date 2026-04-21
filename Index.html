@@ -90,10 +90,36 @@
   .hero p { font-size:1.05rem; color:#a05022; max-width:580px; margin:0 auto; font-weight:500; }
 
   /* SECTION NAV DOTS */
-  .section-nav { display:flex; justify-content:center; gap:.55rem; padding:1rem 0 .5rem; position:relative; z-index:1; flex-wrap:wrap; }
-  .nav-dot { width:11px; height:11px; border-radius:50%; background:var(--orange-200); border:2px solid var(--orange-300); cursor:pointer; transition:all .25s; }
-  .nav-dot.active { background:var(--orange-500); border-color:var(--orange-600); transform:scale(1.3); }
-  .nav-dot.done { background:var(--orange-400); border-color:var(--orange-500); }
+  .section-nav { display:flex; justify-content:center; gap:1.1rem; padding:1rem 0 .5rem; position:relative; z-index:1; flex-wrap:wrap; }
+  .nav-dot {
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:var(--orange-200);
+    border:2.5px solid var(--orange-300);
+    cursor:pointer;
+    transition:all .25s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.25rem;
+    font-weight:800;
+    color:var(--orange-700);
+    box-shadow:0 2px 8px rgba(249,115,22,0.10);
+    position:relative;
+  }
+  .nav-dot.active {
+    background:var(--orange-500);
+    border-color:var(--orange-600);
+    color:#fff;
+    transform:scale(1.18);
+    box-shadow:0 4px 16px rgba(249,115,22,0.18);
+  }
+  .nav-dot.done {
+    background:var(--orange-400);
+    border-color:var(--orange-500);
+    color:#fff;
+  }
 
   /* CONTENT SECTION */
   .lesson-section {
@@ -310,11 +336,11 @@
 
 <!-- SECTION DOTS -->
 <div class="section-nav" id="sectionNav">
-  <div class="nav-dot active" data-section="0" title="Período Paleolítico"></div>
-  <div class="nav-dot" data-section="1" title="Período Neolítico"></div>
-  <div class="nav-dot" data-section="2" title="Leitos dos Rios"></div>
-  <div class="nav-dot" data-section="3" title="Mesopotâmia"></div>
-  <div class="nav-dot" data-section="4" title="Egito"></div>
+  <div class="nav-dot active" data-section="0" title="Período Paleolítico">1</div>
+  <div class="nav-dot" data-section="1" title="Período Neolítico">2</div>
+  <div class="nav-dot" data-section="2" title="Leitos dos Rios">3</div>
+  <div class="nav-dot" data-section="3" title="Mesopotâmia">4</div>
+  <div class="nav-dot" data-section="4" title="Egito">5</div>
 </div>
 
 <!-- ============================= SECTION 1 ============================= -->
@@ -359,4 +385,528 @@
   <div class="quiz-section">
     <div class="quiz-header">
       <span class="quiz-icon">🧠</span>
-      <span class="quiz
+      <span class="quiz-title">Quiz — Período Paleolítico</span>
+      <span class="quiz-lang-badge badge-pt">🇧🇷 Português</span>
+    </div>
+    <div id="quiz-s0-pt"></div>
+  </div>
+
+  <!-- QUIZ EN S1 -->
+  <div class="quiz-section">
+    <div class="quiz-header">
+      <span class="quiz-icon">🌎</span>
+      <span class="quiz-title">Quiz — Paleolithic Period</span>
+      <span class="quiz-lang-badge badge-en">🇨🇦 English</span>
+    </div>
+    <div id="quiz-s0-en"></div>
+  </div>
+
+  <div class="section-complete" id="complete-s0">
+    <h3>🎉 Seção concluída! · Section Complete!</h3>
+    <p>Parabéns! Você terminou o Período Paleolítico. · Great job! You finished the Paleolithic Period.</p>
+  </div>
+  <button class="next-section-btn" id="next-s0" onclick="goToSection(1)">Próxima Seção ➜</button>
+</div>
+
+<!-- ============================= SECTION 2 ============================= -->
+<div class="lesson-section reveal" id="sec1" style="display:none">
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🌾</div>
+      <div>
+        <div class="section-subtitle">Seção 2 · Section 2</div>
+        <div class="section-title">Período Neolítico · Neolithic Period</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <p>Há cerca de <strong>12 mil anos</strong>, o mundo passou por uma importante mudança climática chamada <strong>aquecimento pós-glaciário</strong>. Esse aquecimento alterou a paisagem, proporcionando abundância de vegetais e animais de pequeno porte, como coelhos. Animais de caça tradicionais, como as renas, migraram para regiões mais frias.</p>
+
+      <div class="key-phrase-pt">A mudança climática pós-glaciária permitiu que os seres humanos parassem de ser nômades e se tornassem sedentários.</div>
+      <div class="key-phrase-en">Post-glacial climate change allowed humans to stop being nomads and become sedentary people.</div>
+
+      <p>Sem precisar migrar constantemente, as pessoas passaram a construir <strong>habitats artificiais</strong> de madeira, terra e pedra, formando as <strong>aldeias neolíticas</strong>. Essa estabilidade permitiu a criação de animais e o cultivo de vegetais — o início da <strong>Revolução Neolítica</strong> (também chamada Revolução Agrícola).</p>
+
+      <p>O trigo foi domesticado há cerca de <strong>9,5 mil anos</strong> no Oriente Médio. Os primeiros cultivos provavelmente aconteceram de forma acidental: grãos caídos perto das casas davam origem a novas plantas. As novas ferramentas eram feitas de <strong>pedra polida</strong> — daí o nome Neolítico.</p>
+
+      <div class="key-phrase-pt">A Revolução Neolítica transformou caçadores-coletores em agricultores e criadores de animais.</div>
+      <div class="key-phrase-en">The Neolithic Revolution transformed hunter-gatherers into farmers and animal breeders.</div>
+
+      <p>Os <strong>monumentos megalíticos</strong>, como Stonehenge (Reino Unido, ~3100 a.C.), são as primeiras grandes construções humanas, feitas de enormes blocos de pedra. Seu alinhamento com o sol em certas épocas do ano mostra que os humanos pré-históricos já compreendiam as <strong>estações do ano</strong> — essencial para a agricultura.</p>
+    </div>
+
+    <div class="vocab-box">
+      <div class="vocab-title">📖 Vocabulário · Vocabulary</div>
+      <div class="vocab-grid">
+        <div class="vocab-term">Revolução Neolítica<div class="vocab-tooltip">Transição para a agricultura. / Transition to farming.</div></div>
+        <div class="vocab-term">Sedentarismo<div class="vocab-tooltip">Vida com moradia fixa. / Life with a fixed home.</div></div>
+        <div class="vocab-term">Aldeia Neolítica<div class="vocab-tooltip">Conjunto de habitações fixas. / Set of permanent dwellings.</div></div>
+        <div class="vocab-term">Habitat Artificial<div class="vocab-tooltip">Habitação construída pelos humanos. / Man-made dwelling.</div></div>
+        <div class="vocab-term">Monumentos megalíticos<div class="vocab-tooltip">Construções de grandes pedras. / Large stone structures.</div></div>
+        <div class="vocab-term">Domesticação<div class="vocab-tooltip">Cultivar/criar intencionalmente. / Intentional farming/raising.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-section">
+    <div class="quiz-header">
+      <span class="quiz-icon">🧠</span>
+      <span class="quiz-title">Quiz — Período Neolítico</span>
+      <span class="quiz-lang-badge badge-pt">🇧🇷 Português</span>
+    </div>
+    <div id="quiz-s1-pt"></div>
+  </div>
+
+  <div class="quiz-section">
+    <div class="quiz-header">
+      <span class="quiz-icon">🌎</span>
+      <span class="quiz-title">Quiz — Neolithic Period</span>
+      <span class="quiz-lang-badge badge-en">🇨🇦 English</span>
+    </div>
+    <div id="quiz-s1-en"></div>
+  </div>
+
+  <div class="section-complete" id="complete-s1">
+    <h3>🎉 Seção concluída! · Section Complete!</h3>
+    <p>Incrível! Você dominou o Período Neolítico! · Amazing! You mastered the Neolithic Period!</p>
+  </div>
+  <button class="next-section-btn" id="next-s1" onclick="goToSection(2)">Próxima Seção ➜</button>
+</div>
+
+<!-- ============================= SECTION 3 ============================= -->
+<div class="lesson-section reveal" id="sec2" style="display:none">
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🏞️</div>
+      <div>
+        <div class="section-subtitle">Seção 3 · Section 3</div>
+        <div class="section-title">Ocupação dos Leitos dos Rios · Settlement Along River Valleys</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <p>Em busca de solo <strong>fértil</strong> em regiões secas e desérticas, muitos povos se assentaram nas margens dos rios Nilo, Tigre e Eufrates. Apesar da abundância de água, realizar cultivos nessas regiões exigia grande esforço de <strong>manejo hidráulico</strong>: construir obras que levassem a água do rio para áreas mais distantes do <strong>leito</strong>.</p>
+
+      <div class="key-phrase-pt">Os povos se assentaram às margens dos rios porque o solo fértil das várzeas permitia a agricultura.</div>
+      <div class="key-phrase-en">People settled along riverbanks because the fertile soil in floodplains allowed farming.</div>
+
+      <p>Para construir essas grandes obras de irrigação, parte da população precisava se dedicar exclusivamente às construções — o que significava não realizar trabalhos agrícolas. Surgiu então uma <strong>organização complexa</strong> com divisão clara de trabalho, que deu origem às <strong>primeiras grandes civilizações</strong>: a da Mesopotâmia e a do Egito.</p>
+
+      <div class="key-phrase-pt">A organização complexa do trabalho e o manejo hidráulico foram a base para o surgimento das primeiras civilizações.</div>
+      <div class="key-phrase-en">Complex work organization and water management were the foundation for the rise of the first civilizations.</div>
+    </div>
+
+    <div class="vocab-box">
+      <div class="vocab-title">📖 Vocabulário · Vocabulary</div>
+      <div class="vocab-grid">
+        <div class="vocab-term">Assentar<div class="vocab-tooltip">Permanecer de maneira estável. / To settle permanently.</div></div>
+        <div class="vocab-term">Fértil<div class="vocab-tooltip">Que produz em muita quantidade. / Very productive soil.</div></div>
+        <div class="vocab-term">Leito<div class="vocab-tooltip">Borda do rio, onde o rio corre. / The riverbank/riverbed.</div></div>
+        <div class="vocab-term">Manejo hidráulico<div class="vocab-tooltip">Mudar o curso da água. / Water course management.</div></div>
+        <div class="vocab-term">Organização complexa<div class="vocab-tooltip">Que não é simples. / Not simple; organized.</div></div>
+        <div class="vocab-term">Mesopotâmia<div class="vocab-tooltip">Entre Tigre e Eufrates (atual Iraque/Kuwait). / Between Tigris and Euphrates rivers.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-section">
+    <div class="quiz-header">
+      <span class="quiz-icon">🧠</span>
+      <span class="quiz-title">Quiz — Ocupação dos Rios</span>
+      <span class="quiz-lang-badge badge-pt">🇧🇷 Português</span>
+    </div>
+    <div id="quiz-s2-pt"></div>
+  </div>
+
+  <div class="quiz-section">
+    <div class="quiz-header">
+      <span class="quiz-icon">🌎</span>
+      <span class="quiz-title">Quiz — River Settlements</span>
+      <span class="quiz-lang-badge badge-en">🇨🇦 English</span>
+    </div>
+    <div id="quiz-s2-en"></div>
+  </div>
+
+  <div class="section-complete" id="complete-s2">
+    <h3>🎉 Seção concluída! · Section Complete!</h3>
+    <p>Muito bem! Próxima parada: Mesopotâmia! · Well done! Next stop: Mesopotamia!</p>
+  </div>
+  <button class="next-section-btn" id="next-s2" onclick="goToSection(3)">Próxima Seção ➜</button>
+</div>
+
+<!-- ============================= SECTION 4 ============================= -->
+<div class="lesson-section reveal" id="sec3" style="display:none">
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🏛️</div>
+      <div>
+        <div class="section-subtitle">Seção 4 · Section 4</div>
+        <div class="section-title">Mesopotâmia · Mesopotamia</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <p>A <strong>Mesopotâmia</strong> é a região entre os Rios Tigre e Eufrates — nome que vem do grego e significa "terra entre rios". Por se localizar entre dois rios, era muito fértil, por isso povos de diferentes culturas buscavam se assentar na região. Atualmente corresponde a partes do <strong>Iraque, Kuwait, Síria, Turquia e Irã</strong>.</p>
+
+      <div class="key-phrase-pt">Mesopotâmia significa "terra entre rios" — era fértil por estar entre o Rio Tigre e o Rio Eufrates.</div>
+      <div class="key-phrase-en">Mesopotamia means "land between rivers" — it was fertile because it lay between the Tigris and Euphrates rivers.</div>
+
+      <p>Os pequenos vilarejos eram formados por membros de uma mesma família, realizando atividades de <strong>subsistência</strong>. Com o tempo, esses vilarejos cresceram e deram origem às <strong>primeiras cidades</strong>. Para alimentar a todos os habitantes, foi necessária uma <strong>organização complexa</strong>: diferentes pessoas realizavam diferentes tarefas.</p>
+
+      <p>Surgiram novas funções: <strong>funcionários do governo</strong> (responsáveis por administrar e comandar), <strong>soldados</strong> (para proteger e garantir as leis), e <strong>comerciantes</strong> (que vendiam e compravam produtos entre cidades). Para <strong>irrigar</strong> os solos, foram construídas obras especiais.</p>
+
+      <div class="key-phrase-pt">A organização complexa das cidades mesopotâmicas criou as primeiras divisões de trabalho da história.</div>
+      <div class="key-phrase-en">The complex organization of Mesopotamian cities created the first divisions of labor in history.</div>
+    </div>
+
+    <div class="vocab-box">
+      <div class="vocab-title">📖 Vocabulário · Vocabulary</div>
+      <div class="vocab-grid">
+        <div class="vocab-term">Administrar<div class="vocab-tooltip">Organizar e conduzir. / To organize and manage.</div></div>
+        <div class="vocab-term">Assentar<div class="vocab-tooltip">Permanecer de maneira estável. / To settle permanently.</div></div>
+        <div class="vocab-term">Irrigar<div class="vocab-tooltip">Regar a terra para plantação. / To water land for crops.</div></div>
+        <div class="vocab-term">Subsistência<div class="vocab-tooltip">Essencial para garantir a vida. / Essential for survival.</div></div>
+        <div class="vocab-term">Organização complexa<div class="vocab-tooltip">Que não é simples. / Not simple; multi-layered.</div></div>
+        <div class="vocab-term">Fértil<div class="vocab-tooltip">Que produz em muita quantidade. / Very productive.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-section">
+    <div class="quiz-header">
+      <span class="quiz-icon">🧠</span>
+      <span class="quiz-title">Quiz — Mesopotâmia</span>
+      <span class="quiz-lang-badge badge-pt">🇧🇷 Português</span>
+    </div>
+    <div id="quiz-s3-pt"></div>
+  </div>
+
+  <div class="quiz-section">
+    <div class="quiz-header">
+      <span class="quiz-icon">🌎</span>
+      <span class="quiz-title">Quiz — Mesopotamia</span>
+      <span class="quiz-lang-badge badge-en">🇨🇦 English</span>
+    </div>
+    <div id="quiz-s3-en"></div>
+  </div>
+
+  <div class="section-complete" id="complete-s3">
+    <h3>🎉 Seção concluída! · Section Complete!</h3>
+    <p>Excelente! Agora vamos para o Egito! · Excellent! Now let's go to Egypt!</p>
+  </div>
+  <button class="next-section-btn" id="next-s3" onclick="goToSection(4)">Próxima Seção ➜</button>
+</div>
+
+<!-- ============================= SECTION 5 ============================= -->
+<div class="lesson-section reveal" id="sec4" style="display:none">
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🔺</div>
+      <div>
+        <div class="section-subtitle">Seção 5 · Section 5</div>
+        <div class="section-title">Egito · Egypt</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <p>Apesar de o Egito estar em uma região <strong>árida</strong> (sem umidade, seca), é atravessado por um dos mais importantes rios do mundo: o <strong>Rio Nilo</strong>. O Nilo possibilitou o <strong>desenvolvimento</strong> da civilização egípcia. Entre junho e outubro, o rio transbordava por conta das chuvas na nascente (a quilômetros de distância do Egito). Quando a cheia passava, o solo inundado se tornava <strong>fértil</strong>.</p>
+
+      <div class="key-phrase-pt">O Rio Nilo transformava o solo árido do Egito em terra fértil através das suas cheias anuais.</div>
+      <div class="key-phrase-en">The Nile River transformed Egypt's dry, arid soil into fertile land through its annual floods.</div>
+
+      <p>A população aprendeu a utilizar as margens do Nilo para plantação. Era preciso <strong>drenar</strong> os terrenos depois da cheia, construir <strong>canais</strong> para levar a água para lugares mais distantes e criar <strong>barragens</strong> para evitar os alagamentos.</p>
+
+      <p>Todo esse conhecimento gerou um <strong>excedente agrícola</strong> (mais alimentos do que o necessário), permitindo que os vilarejos se tornassem cidades maiores e mais <strong>complexas</strong>, governadas pelos <strong>faraós</strong> e conhecidas pelas imensas construções: as <strong>pirâmides</strong>.</p>
+
+      <div class="key-phrase-pt">O excedente agrícola gerado pelo Nilo permitiu o crescimento das cidades e a construção das pirâmides pelos faraós.</div>
+      <div class="key-phrase-en">The agricultural surplus generated by the Nile allowed cities to grow and pharaohs to build the pyramids.</div>
+    </div>
+
+    <div class="vocab-box">
+      <div class="vocab-title">📖 Vocabulário · Vocabulary</div>
+      <div class="vocab-grid">
+        <div class="vocab-term">Árido<div class="vocab-tooltip">Sem umidade, seco. / Dry, without moisture.</div></div>
+        <div class="vocab-term">Complexo<div class="vocab-tooltip">Que não é simples. / Not simple.</div></div>
+        <div class="vocab-term">Desenvolvimento<div class="vocab-tooltip">Surgimento, crescimento. / Growth, emergence.</div></div>
+        <div class="vocab-term">Drenar<div class="vocab-tooltip">Enxugar o terreno. / To drain the land.</div></div>
+        <div class="vocab-term">Fértil<div class="vocab-tooltip">Que produz em muita quantidade. / Very productive.</div></div>
+        <div class="vocab-term">Excedente agrícola<div class="vocab-tooltip">Mais alimentos do que o necessário. / More food than needed.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-section">
+    <div class="quiz-header">
+      <span class="quiz-icon">🧠</span>
+      <span class="quiz-title">Quiz — Egito</span>
+      <span class="quiz-lang-badge badge-pt">🇧🇷 Português</span>
+    </div>
+    <div id="quiz-s4-pt"></div>
+  </div>
+
+  <div class="quiz-section">
+    <div class="quiz-header">
+      <span class="quiz-icon">🌎</span>
+      <span class="quiz-title">Quiz — Egypt</span>
+      <span class="quiz-lang-badge badge-en">🇨🇦 English</span>
+    </div>
+    <div id="quiz-s4-en"></div>
+  </div>
+
+  <div class="section-complete" id="complete-s4">
+    <h3>🎉 Parabéns! · Congratulations!</h3>
+    <p>Você completou todas as seções! · You completed all sections!</p>
+  </div>
+  <button class="next-section-btn" id="next-s4" onclick="showTrophy()">Ver Resultado Final 🏆</button>
+</div>
+
+<!-- TROPHY -->
+<div class="final-trophy" id="finalTrophy">
+  <div class="trophy-card">
+    <span class="trophy-emoji">🏆</span>
+    <h2>Você é incrível!<br><span style="font-size:.65em;color:var(--orange-500);">You are amazing!</span></h2>
+    <div class="trophy-score"><span id="finalScore">0</span> pontos!</div>
+    <p id="finalMsg">Continue estudando e explorando a história! · Keep studying and exploring history!</p>
+    <button onclick="location.reload()" style="margin-top:1.5rem;padding:.7rem 2rem;background:linear-gradient(135deg,var(--orange-400),var(--orange-600));color:white;border:none;border-radius:99px;font-family:'Baloo 2',cursive;font-weight:800;font-size:1rem;cursor:pointer;box-shadow:0 4px 16px rgba(234,88,12,.28);">Recomeçar · Restart 🔄</button>
+  </div>
+</div>
+
+<div style="height:3rem"></div>
+
+<script>
+// ============================================================
+// QUIZ DATA
+// ============================================================
+const quizData = {
+  's0-pt': [
+    { q:'Em que continente surgiu o Homo sapiens?', opts:['Europa','Ásia','África','América'], correct:2 },
+    { q:'Como era chamado o modo de vida dos primeiros seres humanos, que não tinham moradia fixa?', opts:['Sedentarismo','Nomadismo','Feudalismo','Imperialismo'], correct:1 },
+    { q:'Quais eram as principais ferramentas do período Paleolítico?', opts:['Instrumentos de metal','Pedra polida','Pedra lascada','Cerâmica'], correct:2 },
+    { q:'O que são pinturas rupestres?', opts:['Pinturas feitas em telas','Representações em rochas ou cavernas','Esculturas de pedra','Livros ilustrados'], correct:1 },
+    { q:'O fóssil Omo Kibish, encontrado na Etiópia, tinha aproximadamente quantos anos?', opts:['50 mil anos','100 mil anos','200 mil anos','1 milhão de anos'], correct:2 },
+  ],
+  's0-en': [
+    { q:'What is the name of our human species?', opts:['Homo erectus','Homo sapiens','Homo neanderthalensis','Homo habilis'], correct:1 },
+    { q:'What are cave paintings?', opts:['Paintings made on canvas','Images printed in books','Visual records made on rocks by early humans','Sculptures carved from stone'], correct:2 },
+    { q:'Africa is known as what in human history?', opts:['The youngest continent','The cradle of humanity','The last continent to be discovered','The continent of pyramids'], correct:1 },
+  ],
+  's1-pt': [
+    { q:'Qual foi a mudança climática que ocorreu há cerca de 12 mil anos e transformou o modo de vida humano?', opts:['Glaciação','Aquecimento pós-glaciário','Tempestade tropical','Era do gelo'], correct:1 },
+    { q:'O que é a Revolução Neolítica?', opts:['A invenção da escrita','A transição do nomadismo para o sedentarismo e a agricultura','A construção das pirâmides','O surgimento das cidades gregas'], correct:1 },
+    { q:'O que significa "Neolítico"?', opts:['Pedra antiga','Pedra lascada','Pedra polida','Pedra molhada'], correct:2 },
+    { q:'Qual cereal foi um dos primeiros a ser domesticado, há cerca de 9,5 mil anos?', opts:['Milho','Arroz','Trigo','Soja'], correct:2 },
+    { q:'Para que serviam os monumentos megalíticos como Stonehenge?', opts:['Armazenar grãos','Rituais funerários e estudo do sol/estações','Proteger aldeias de inimigos','Guardar animais'], correct:1 },
+  ],
+  's1-en': [
+    { q:'What does "Neolithic" mean?', opts:['New stone (polished stone)','Old stone','Big rock','River stone'], correct:0 },
+    { q:'What was the Neolithic Revolution?', opts:['A war between villages','The change from nomadic hunter-gatherers to farming settlers','The invention of the wheel','The building of Stonehenge'], correct:1 },
+    { q:'Why is Stonehenge significant for the study of early humans?', opts:['It shows humans knew how to write','Its alignment with the sun proves early understanding of seasons','It was the largest city in the world','It was the first place humans lived'], correct:1 },
+  ],
+  's2-pt': [
+    { q:'Por que os povos antigos se assentavam às margens dos rios?', opts:['Porque o solo perto dos rios era fértil','Porque os rios tinham peixes grandes','Porque os rios eram fronteiras entre países','Porque o clima era mais frio perto dos rios'], correct:0 },
+    { q:'O que é "manejo hidráulico"?', opts:['Construir pontes sobre os rios','Fazer alguma mudança no curso da água para irrigação','Poluir rios com resíduos','Pescar nos rios'], correct:1 },
+    { q:'Quais foram as primeiras grandes civilizações surgidas às margens dos rios?', opts:['Grécia e Roma','China e Índia','Mesopotâmia e Egito','Azteca e Inca'], correct:2 },
+    { q:'Por que parte da população tinha que se dedicar às obras de irrigação, e não à agricultura?', opts:['Porque tinham medo de trabalhar na lavoura','Porque as obras eram muito grandes e exigiam muitas pessoas','Porque o governo proibia trabalho agrícola','Porque a terra não era boa para plantar'], correct:1 },
+    { q:'O que o leito do rio representa?', opts:['Uma ponte sobre o rio','A profundidade da água','A borda do rio, onde o rio corre','O nome científico do rio'], correct:2 },
+  ],
+  's2-en': [
+    { q:'Why did ancient peoples settle along river valleys?', opts:['Rivers provided fertile soil for farming','Rivers were easier to cross','Rivers had gold at the bottom','Rivers protected them from the sun'], correct:0 },
+    { q:'What is "hydraulic management"?', opts:['Swimming in rivers','Managing and redirecting water for irrigation','Building boats','Drinking river water'], correct:1 },
+    { q:'Which two civilizations arose in the river valleys covered in this lesson?', opts:['Greece and Rome','China and Japan','Mesopotamia and Egypt','Persia and India'], correct:2 },
+  ],
+  's3-pt': [
+    { q:'O que significa "Mesopotâmia"?', opts:['Terra dos faraós','Terra entre rios','Terra do sol','Terra das pirâmides'], correct:1 },
+    { q:'Entre quais rios ficava a Mesopotâmia?', opts:['Nilo e Amazonas','Tigre e Eufrates','Mississippi e Missouri','Ganges e Indo'], correct:1 },
+    { q:'O que eram os vilarejos mesopotâmicos formados por membros de uma mesma família?', opts:['Vilas de subsistência','Impérios','Cidades-estado','Colônias'], correct:0 },
+    { q:'Qual nova função surgiu nas cidades para proteger a população e garantir as leis?', opts:['Agricultores','Sacerdotes','Soldados','Artesãos'], correct:2 },
+    { q:'O que é "irrigar" os solos?', opts:['Enxugar o terreno','Regar a terra para plantação','Construir muros de pedra','Queimar a terra para limpá-la'], correct:1 },
+  ],
+  's3-en': [
+    { q:'Between which two rivers was Mesopotamia located?', opts:['Nile and Amazon','Mississippi and Missouri','Tigris and Euphrates','Ganges and Indus'], correct:2 },
+    { q:'What does "Mesopotamia" mean in Greek?', opts:['Land of the pharaohs','Land between rivers','Land of the gods','Land of the desert'], correct:1 },
+    { q:'Which of the following was a new job/role that appeared in Mesopotamian cities?', opts:['Nomadic hunter','Cave painter','Government official','Fisherman'], correct:2 },
+  ],
+  's4-pt': [
+    { q:'Qual rio foi fundamental para o desenvolvimento da civilização egípcia?', opts:['Rio Tigre','Rio Eufrates','Rio Nilo','Rio Amazonas'], correct:2 },
+    { q:'Por que o Egito conseguia desenvolver agricultura apesar de ser uma região árida?', opts:['Porque tinha muita chuva no inverno','Porque o Rio Nilo transbordava e deixava o solo fértil','Porque usavam tecnologia avançada de irrigação','Porque importavam terra fértil de outros países'], correct:1 },
+    { q:'O que é "drenar" um terreno?', opts:['Adicionar água ao terreno','Enxugar o terreno, retirar a água','Plantar sementes no terreno','Construir muros no terreno'], correct:1 },
+    { q:'O que é "excedente agrícola"?', opts:['Falta de alimentos','Alimentos estragados','Mais alimentos do que o necessário','Alimentos importados'], correct:2 },
+    { q:'Quem governava as grandes cidades do Egito Antigo?', opts:['Presidentes','Reis europeus','Faraós','Senadores'], correct:2 },
+  ],
+  's4-en': [
+    { q:'Which river made agriculture possible in ancient Egypt?', opts:['The Tigris','The Amazon','The Nile','The Euphrates'], correct:2 },
+    { q:'What is an "agricultural surplus"?', opts:['Not having enough food','Having more food than needed','Spoiled crops','Imported food'], correct:1 },
+    { q:'What were the famous large stone structures built by the pharaohs in Egypt?', opts:['Coliseums','Ziggurats','Temples','Pyramids'], correct:3 },
+  ],
+};
+
+// ============================================================
+// STATE
+// ============================================================
+let score = 0;
+let totalQuestions = 0;
+let answeredQuestions = 0;
+const sectionAnswered = { 0: { pt:0, en:0 }, 1:{ pt:0, en:0 }, 2:{ pt:0, en:0 }, 3:{ pt:0, en:0 }, 4:{ pt:0, en:0 } };
+const sectionTotal   = { 0: { pt:5, en:3 }, 1:{ pt:5, en:3 }, 2:{ pt:5, en:3 }, 3:{ pt:5, en:3 }, 4:{ pt:5, en:3 } };
+
+// count total
+Object.values(quizData).forEach(q => totalQuestions += q.length);
+
+// ============================================================
+// RENDER QUIZZES
+// ============================================================
+function renderQuiz(containerId, key, sectionIdx, lang) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const questions = quizData[key];
+  container.innerHTML = '';
+  questions.forEach((q, qi) => {
+    const letters = ['A','B','C','D'];
+    const block = document.createElement('div');
+    block.className = 'question-block';
+    block.innerHTML = `
+      <div class="question-num">Pergunta ${qi+1} / Question ${qi+1}</div>
+      <div class="question-text">${q.q}</div>
+      <div class="options" id="opts-${containerId}-${qi}">
+        ${q.opts.map((o,oi) => `
+          <button class="option-btn" onclick="checkAnswer(this,'${containerId}',${qi},${oi},${q.correct},${sectionIdx},'${lang}')">
+            <span class="option-letter">${letters[oi]}</span>${o}
+          </button>`).join('')}
+      </div>
+      <div class="feedback-msg" id="fb-${containerId}-${qi}"></div>
+    `;
+    container.appendChild(block);
+  });
+}
+
+// ============================================================
+// CHECK ANSWER
+// ============================================================
+function checkAnswer(btn, containerId, qi, chosen, correct, sectionIdx, lang) {
+  const opts = document.querySelectorAll(`#opts-${containerId}-${qi} .option-btn`);
+  opts.forEach(b => b.disabled = true);
+  const fb = document.getElementById(`fb-${containerId}-${qi}`);
+  if (chosen === correct) {
+    btn.classList.add('correct');
+    fb.className = 'feedback-msg correct';
+    fb.innerHTML = '✅ Correto! · Correct!';
+    fb.style.display = 'flex';
+    score += 10;
+    document.getElementById('scoreDisplay').textContent = score;
+    launchConfetti();
+  } else {
+    btn.classList.add('wrong');
+    opts[correct].classList.add('correct');
+    const correctText = quizData[`s${sectionIdx}-${lang}`][qi].opts[correct];
+    fb.className = 'feedback-msg wrong';
+    fb.innerHTML = `❌ Ops! A resposta certa é: <strong>${correctText}</strong> · The correct answer is: <strong>${correctText}</strong>`;
+    fb.style.display = 'flex';
+  }
+  answeredQuestions++;
+  sectionAnswered[sectionIdx][lang]++;
+  updateProgress();
+  checkSectionComplete(sectionIdx);
+}
+
+// ============================================================
+// PROGRESS
+// ============================================================
+function updateProgress() {
+  const pct = (answeredQuestions / totalQuestions) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+// ============================================================
+// SECTION COMPLETE CHECK
+// ============================================================
+function checkSectionComplete(idx) {
+  const a = sectionAnswered[idx];
+  const t = sectionTotal[idx];
+  if (a.pt >= t.pt && a.en >= t.en) {
+    document.getElementById(`complete-s${idx}`).classList.add('show');
+    document.getElementById(`next-s${idx}`).classList.add('show');
+    // mark dot
+    const dots = document.querySelectorAll('.nav-dot');
+    dots[idx].classList.remove('active');
+    dots[idx].classList.add('done');
+    if (idx < 4) dots[idx+1].classList.add('active');
+  }
+}
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function goToSection(idx) {
+  const secEl = document.getElementById(`sec${idx}`);
+  secEl.style.display = '';
+  secEl.classList.add('reveal');
+  setTimeout(() => secEl.classList.add('visible'), 50);
+  secEl.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+// ============================================================
+// CONFETTI
+// ============================================================
+function launchConfetti() {
+  const container = document.getElementById('confettiContainer');
+  const colors = ['#f97316','#fb923c','#fbbf24','#f59e0b','#fdba74','#fed7aa','#fff'];
+  for (let i=0;i<22;i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random()*100 + 'vw';
+    piece.style.top = '-10px';
+    piece.style.background = colors[Math.floor(Math.random()*colors.length)];
+    piece.style.width = (6+Math.random()*8) + 'px';
+    piece.style.height = (6+Math.random()*8) + 'px';
+    piece.style.borderRadius = Math.random()>.5?'50%':'2px';
+    piece.style.animationDuration = (.7+Math.random()*.8) + 's';
+    piece.style.animationDelay = (Math.random()*.3) + 's';
+    container.appendChild(piece);
+    setTimeout(()=>piece.remove(), 1500);
+  }
+}
+
+// ============================================================
+// TROPHY
+// ============================================================
+function showTrophy() {
+  document.getElementById('finalScore').textContent = score;
+  const pct = Math.round((score/(totalQuestions*10))*100);
+  let msg = '';
+  if (pct >= 90) msg = '🌟 Desempenho excepcional! · Exceptional performance!';
+  else if (pct >= 70) msg = '👏 Muito bem! Continue assim! · Very well done! Keep it up!';
+  else msg = '📚 Continue estudando! · Keep on studying!';
+  document.getElementById('finalMsg').textContent = msg;
+  document.getElementById('finalTrophy').classList.add('show');
+  document.getElementById('finalTrophy').scrollIntoView({ behavior:'smooth' });
+  launchConfetti(); launchConfetti();
+}
+
+// ============================================================
+// SCROLL REVEAL
+// ============================================================
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ============================================================
+// DOT NAV
+// ============================================================
+document.querySelectorAll('.nav-dot').forEach(dot => {
+  dot.addEventListener('click', () => {
+    const idx = parseInt(dot.dataset.section);
+    const el = document.getElementById(`sec${idx}`);
+    if (el) { el.style.display=''; el.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+
+// ============================================================
+// INIT — render all quizzes
+// ============================================================
+for (let i=0;i<5;i++) {
+  renderQuiz(`quiz-s${i}-pt`, `s${i}-pt`, i, 'pt');
+  renderQuiz(`quiz-s${i}-en`, `s${i}-en`, i, 'en');
+}
+
+// Reveal section 0 immediately
+document.querySelector('#sec0').classList.add('visible');
+</script>
+</body>
+</html>
