@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>História Y5 · MapleBear</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange-50: #fff7ed;
+    --orange-100: #ffedd5;
+    --orange-200: #fed7aa;
+    --orange-300: #fdba74;
+    --orange-400: #fb923c;
+    --orange-500: #f97316;
+    --orange-600: #ea580c;
+    --orange-700: #c2410c;
+    --white: #ffffff;
+    --glass-bg: rgba(255,255,255,0.65);
+    --glass-border: rgba(249,115,22,0.18);
+    --shadow-soft: 0 8px 32px rgba(249,115,22,0.10);
+    --shadow-card: 0 4px 24px rgba(249,115,22,0.13);
+    --radius-xl: 2rem;
+    --radius-lg: 1.25rem;
+    --radius-md: 0.875rem;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 40%, #fff3e0 70%, #fde8d0 100%);
+    min-height: 100vh;
+    color: #3a1a00;
+  }
+
+  /* BACKGROUND BLOBS */
+  body::before {
+    content:'';
+    position: fixed;
+    top: -120px; right: -120px;
+    width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(251,146,60,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content:'';
+    position: fixed;
+    bottom: -100px; left: -100px;
+    width: 440px; height: 440px;
+    background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV / HEADER */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    backdrop-filter: blur(18px) saturate(1.4);
+    background: rgba(255,255,255,0.72);
+    border-bottom: 1.5px solid rgba(249,115,22,0.15);
+    box-shadow: 0 2px 18px rgba(249,115,22,0.08);
+    padding: 0.7rem 2rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .logo { display: flex; align-items: center; gap: 0.7rem; }
+  .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, var(--orange-400), var(--orange-600)); border-radius: 12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; box-shadow: 0 4px 12px rgba(234,88,12,0.25); }
+  .logo-text { font-family: 'Baloo 2', cursive; font-weight:800; font-size:1.2rem; color: var(--orange-600); }
+  .logo-sub { font-size:0.72rem; font-weight:600; color: var(--orange-400); letter-spacing:.04em; }
+
+  .progress-bar-wrap { flex:1; max-width:320px; }
+  .progress-label { font-size:0.7rem; font-weight:700; color:var(--orange-500); margin-bottom:4px; text-transform:uppercase; letter-spacing:.06em; }
+  .progress-track { height:8px; background:rgba(253,186,116,0.35); border-radius:99px; overflow:hidden; }
+  .progress-fill { height:100%; background: linear-gradient(90deg, var(--orange-400), var(--orange-600)); border-radius:99px; transition: width .6s cubic-bezier(.4,0,.2,1); width:0%; }
+
+  .score-badge { background: linear-gradient(135deg, var(--orange-400), var(--orange-600)); color:#fff; font-weight:800; font-size:0.95rem; padding:.38rem .9rem; border-radius:99px; box-shadow: 0 3px 12px rgba(234,88,12,0.28); display:flex; align-items:center; gap:.4rem; }
+
+  /* HERO */
+  .hero {
+    text-align:center; padding: 3.5rem 1.5rem 2.5rem;
+    position:relative; z-index:1;
+  }
+  .hero-badge {
+    display:inline-block; background: linear-gradient(90deg,#fb923c22,#f9731611); border:1.5px solid var(--orange-300); border-radius:99px; padding:.3rem 1rem; font-size:.78rem; font-weight:700; color:var(--orange-600); letter-spacing:.06em; text-transform:uppercase; margin-bottom:1.1rem;
+  }
+  .hero h1 { font-family:'Baloo 2',cursive; font-weight:800; font-size:clamp(2rem,5vw,3rem); color:var(--orange-700); line-height:1.15; margin-bottom:.6rem; }
+  .hero p { font-size:1.05rem; color:#a05022; max-width:580px; margin:0 auto; font-weight:500; }
+
+  /* SECTION NAV DOTS */
+  .section-nav { display:flex; justify-content:center; gap:.55rem; padding:1rem 0 .5rem; position:relative; z-index:1; flex-wrap:wrap; }
+  .nav-dot { width:11px; height:11px; border-radius:50%; background:var(--orange-200); border:2px solid var(--orange-300); cursor:pointer; transition:all .25s; }
+  .nav-dot.active { background:var(--orange-500); border-color:var(--orange-600); transform:scale(1.3); }
+  .nav-dot.done { background:var(--orange-400); border-color:var(--orange-500); }
+
+  /* CONTENT SECTION */
+  .lesson-section {
+    max-width:860px; margin:2rem auto; padding:0 1rem;
+    position:relative; z-index:1;
+  }
+
+  .section-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(1.3);
+    border: 1.5px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-soft);
+    padding: 2rem 2.2rem 1.8rem;
+    margin-bottom: 1.5rem;
+    position:relative; overflow:hidden;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .section-card:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(249,115,22,0.14); }
+  .section-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:4px;
+    background: linear-gradient(90deg, var(--orange-400), var(--orange-600), var(--orange-300));
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+
+  .section-header { display:flex; align-items:center; gap:.9rem; margin-bottom:1.5rem; }
+  .section-icon { width:52px; height:52px; background:linear-gradient(135deg,var(--orange-400),var(--orange-600)); border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; font-size:1.6rem; box-shadow:0 4px 16px rgba(234,88,12,0.22); flex-shrink:0; }
+  .section-title { font-family:'Baloo 2',cursive; font-weight:800; font-size:1.5rem; color:var(--orange-700); }
+  .section-subtitle { font-size:.78rem; font-weight:700; color:var(--orange-400); text-transform:uppercase; letter-spacing:.07em; }
+
+  .section-body { font-size:1rem; line-height:1.75; color:#4a2000; }
+  .section-body p { margin-bottom:1rem; }
+
+  /* KEY PHRASES */
+  .key-phrase-pt {
+    background: linear-gradient(90deg, rgba(253,186,116,0.35), rgba(249,115,22,0.10));
+    border-left: 4px solid var(--orange-500);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: .7rem 1.1rem;
+    margin: 1.2rem 0;
+    font-weight:700; font-size:1.02rem; color:var(--orange-700);
+    position:relative;
+  }
+  .key-phrase-pt::before { content:'🔑 PT'; position:absolute; top:-.62rem; left:.8rem; font-size:.65rem; font-weight:800; background:var(--orange-500); color:#fff; padding:.15rem .45rem; border-radius:99px; letter-spacing:.04em; }
+
+  .key-phrase-en {
+    background: linear-gradient(90deg, rgba(251,191,36,0.18), rgba(245,158,11,0.08));
+    border-left: 4px solid #f59e0b;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: .7rem 1.1rem;
+    margin: 1.2rem 0;
+    font-weight:700; font-size:1.02rem; color:#92400e; font-style:italic;
+    position:relative;
+  }
+  .key-phrase-en::before { content:'🔑 EN'; position:absolute; top:-.62rem; left:.8rem; font-size:.65rem; font-weight:800; background:#f59e0b; color:#fff; padding:.15rem .45rem; border-radius:99px; letter-spacing:.04em; }
+
+  /* VOCABULARY */
+  .vocab-box {
+    background: linear-gradient(135deg, rgba(255,237,213,0.8), rgba(255,247,237,0.9));
+    border: 1.5px solid rgba(253,186,116,0.5);
+    border-radius: var(--radius-lg);
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .vocab-title { font-family:'Baloo 2',cursive; font-weight:800; color:var(--orange-600); font-size:1rem; margin-bottom:.8rem; display:flex; align-items:center; gap:.4rem; }
+  .vocab-grid { display:flex; flex-wrap:wrap; gap:.5rem; }
+  .vocab-term {
+    background: white; border: 1.5px solid var(--orange-300); border-radius:99px;
+    padding:.28rem .85rem; font-size:.83rem; font-weight:700; color:var(--orange-700);
+    cursor:pointer; transition:all .2s; position:relative;
+  }
+  .vocab-term:hover { background:var(--orange-500); color:white; transform:translateY(-2px); box-shadow:0 4px 12px rgba(249,115,22,0.28); }
+  .vocab-tooltip {
+    display:none; position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%);
+    background:rgba(58,26,0,0.92); color:white; border-radius:var(--radius-md); padding:.5rem .85rem;
+    font-size:.78rem; font-weight:600; white-space:nowrap; z-index:200;
+    box-shadow:0 4px 16px rgba(0,0,0,0.18);
+  }
+  .vocab-tooltip::after { content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:5px solid transparent; border-top-color:rgba(58,26,0,0.92); }
+  .vocab-term:hover .vocab-tooltip { display:block; animation: fadeInUp .2s ease; }
+
+  /* QUIZ SECTION */
+  .quiz-section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(1.3);
+    border: 1.5px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    padding: 1.8rem 2.2rem;
+    margin-bottom: 2.5rem;
+    position:relative; overflow:hidden;
+  }
+  .quiz-section::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:4px;
+    background: linear-gradient(90deg, #f59e0b, var(--orange-500), #f97316);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+
+  .quiz-header { display:flex; align-items:center; gap:.8rem; margin-bottom:1.5rem; }
+  .quiz-icon { font-size:1.4rem; }
+  .quiz-title { font-family:'Baloo 2',cursive; font-weight:800; font-size:1.15rem; color:var(--orange-700); }
+  .quiz-lang-badge { margin-left:auto; font-size:.7rem; font-weight:800; padding:.22rem .65rem; border-radius:99px; letter-spacing:.05em; text-transform:uppercase; }
+  .badge-pt { background:rgba(249,115,22,0.12); color:var(--orange-600); border:1.5px solid var(--orange-300); }
+  .badge-en { background:rgba(245,158,11,0.12); color:#b45309; border:1.5px solid #fbbf24; }
+
+  .question-block { margin-bottom:1.5rem; }
+  .question-num { font-size:.73rem; font-weight:800; color:var(--orange-400); text-transform:uppercase; letter-spacing:.08em; margin-bottom:.35rem; }
+  .question-text { font-weight:700; font-size:1rem; color:#3a1a00; margin-bottom:.85rem; line-height:1.5; }
+
+  .options { display:flex; flex-direction:column; gap:.55rem; }
+  .option-btn {
+    background: rgba(255,255,255,0.8); border: 2px solid rgba(253,186,116,0.4);
+    border-radius: var(--radius-md); padding:.75rem 1.1rem;
+    font-family:'Nunito',sans-serif; font-size:.93rem; font-weight:600; color:#5c2800;
+    cursor:pointer; text-align:left; transition:all .2s; display:flex; align-items:center; gap:.7rem;
+  }
+  .option-btn:hover:not(:disabled) { background:rgba(255,237,213,0.95); border-color:var(--orange-400); transform:translateX(4px); }
+  .option-letter { width:28px; height:28px; background:linear-gradient(135deg,var(--orange-200),var(--orange-300)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.82rem; color:var(--orange-700); flex-shrink:0; transition:all .2s; }
+  .option-btn.correct { background:rgba(187,247,208,0.7); border-color:#22c55e; color:#14532d; }
+  .option-btn.correct .option-letter { background:#22c55e; color:white; }
+  .option-btn.wrong { background:rgba(254,202,202,0.7); border-color:#ef4444; color:#7f1d1d; }
+  .option-btn.wrong .option-letter { background:#ef4444; color:white; }
+  .option-btn:disabled { cursor:default; }
+
+  .feedback-msg { border-radius:var(--radius-md); padding:.7rem 1rem; font-weight:700; font-size:.9rem; margin-top:.7rem; display:none; animation: slideIn .3s ease; }
+  .feedback-msg.correct { background:rgba(187,247,208,0.6); color:#15803d; border:1.5px solid #86efac; display:flex; gap:.5rem; align-items:center; }
+  .feedback-msg.wrong { background:rgba(254,202,202,0.6); color:#dc2626; border:1.5px solid #fca5a5; display:flex; gap:.5rem; align-items:center; }
+
+  /* CONFETTI */
+  .confetti-container { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; }
+  .confetti-piece {
+    position:absolute; width:10px; height:10px; border-radius:2px;
+    animation: confettiFall 1.2s ease-in forwards;
+  }
+
+  /* SECTION COMPLETE */
+  .section-complete {
+    display:none; text-align:center; padding:1.5rem; margin-top:1rem;
+    background:linear-gradient(135deg,rgba(187,247,208,0.4),rgba(134,239,172,0.2));
+    border:1.5px solid #86efac; border-radius:var(--radius-lg); animation: fadeInUp .4s ease;
+  }
+  .section-complete.show { display:block; }
+  .section-complete h3 { font-family:'Baloo 2',cursive; font-weight:800; color:#15803d; font-size:1.3rem; margin-bottom:.4rem; }
+  .section-complete p { color:#166534; font-size:.9rem; }
+
+  /* NEXT BTN */
+  .next-section-btn {
+    display:none; margin: 1rem auto 0; padding:.8rem 2rem;
+    background:linear-gradient(135deg,var(--orange-400),var(--orange-600));
+    color:white; border:none; border-radius:99px; font-family:'Baloo 2',cursive;
+    font-weight:800; font-size:1rem; cursor:pointer; box-shadow:0 4px 16px rgba(234,88,12,0.28);
+    transition:all .25s; text-transform:uppercase; letter-spacing:.05em;
+  }
+  .next-section-btn:hover { transform:translateY(-2px) scale(1.03); box-shadow:0 8px 24px rgba(234,88,12,0.35); }
+  .next-section-btn.show { display:block; animation: fadeInUp .4s ease; }
+
+  /* FINAL TROPHY */
+  .final-trophy { display:none; text-align:center; padding:3rem 2rem; position:relative; z-index:1; }
+  .final-trophy.show { display:block; animation: fadeInUp .6s ease; }
+  .trophy-card { background:var(--glass-bg); backdrop-filter:blur(20px); border:2px solid rgba(253,186,116,0.4); border-radius:var(--radius-xl); padding:3rem 2rem; max-width:540px; margin:0 auto; box-shadow:0 16px 48px rgba(249,115,22,0.15); }
+  .trophy-emoji { font-size:5rem; margin-bottom:1rem; display:block; animation: bounce 1s ease infinite; }
+  .trophy-card h2 { font-family:'Baloo 2',cursive; font-weight:800; font-size:2rem; color:var(--orange-700); margin-bottom:.7rem; }
+  .trophy-score { font-size:3rem; font-weight:900; color:var(--orange-600); font-family:'Baloo 2',cursive; }
+  .trophy-card p { color:#a05022; margin-top:.8rem; font-size:1rem; }
+
+  /* ANIMATIONS */
+  @keyframes fadeInUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes slideIn { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+  @keyframes confettiFall { 0% { opacity:1; transform:translateY(0) rotate(0deg) scale(1); } 100% { opacity:0; transform:translateY(100vh) rotate(540deg) scale(.6); } }
+  @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-12px); } }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.7; } }
+
+  .fade-in { animation: fadeInUp .5s ease both; }
+
+  /* SCROLL REVEAL */
+  .reveal { opacity:0; transform:translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  /* RESPONSIVE */
+  @media(max-width:600px) {
+    .section-card, .quiz-section { padding:1.3rem 1.1rem; }
+    header { padding:.6rem 1rem; }
+    .logo-text { font-size:1rem; }
+    .progress-bar-wrap { max-width:160px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="confetti-container" id="confettiContainer"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">🍁</div>
+    <div>
+      <div class="logo-text">MapleBear Y5</div>
+      <div class="logo-sub">História · History</div>
+    </div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-label">Progresso · Progress</div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+  <div class="score-badge">⭐ <span id="scoreDisplay">0</span> pts</div>
+</header>
+
+<!-- HERO -->
+<div class="hero fade-in">
+  <div class="hero-badge">Unidade 1 · Unit 1 · Year 5</div>
+  <h1>A Formação dos Diferentes Povos<br><span style="font-size:.65em;color:var(--orange-500);">The Formation of Different Peoples</span></h1>
+  <p>Aula 13 · Material 2 — Período Paleolítico, Neolítico e as Primeiras Civilizações</p>
+</div>
+
+<!-- SECTION DOTS -->
+<div class="section-nav" id="sectionNav">
+  <div class="nav-dot active" data-section="0" title="Período Paleolítico"></div>
+  <div class="nav-dot" data-section="1" title="Período Neolítico"></div>
+  <div class="nav-dot" data-section="2" title="Leitos dos Rios"></div>
+  <div class="nav-dot" data-section="3" title="Mesopotâmia"></div>
+  <div class="nav-dot" data-section="4" title="Egito"></div>
+</div>
+
+<!-- ============================= SECTION 1 ============================= -->
+<div class="lesson-section reveal" id="sec0">
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🦴</div>
+      <div>
+        <div class="section-subtitle">Seção 1 · Section 1</div>
+        <div class="section-title">Período Paleolítico · Paleolithic Period</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <p>A história do surgimento do <strong>Homo sapiens</strong> está em constante reconstrução. Em 1967, fósseis humanos muito antigos foram encontrados na Etiópia, de um Homo sapiens que teria vivido há cerca de <strong>200 mil anos</strong>. Em 2017, descobertas no sítio arqueológico de Jebel Irhoud, no Marrocos, revelaram que nossa espécie pode ter surgido há cerca de <strong>300 mil anos</strong>. A África é o berço da humanidade!</p>
+
+      <div class="key-phrase-pt">O Homo sapiens surgiu na África há aproximadamente 300 mil anos e se espalhou por todo o mundo.</div>
+      <div class="key-phrase-en">Homo sapiens emerged in Africa approximately 300,000 years ago and spread across the entire world.</div>
+
+      <p>Os seres humanos do período paleolítico viviam de forma <strong>nômade</strong>: caçavam, pescavam e coletavam frutos. Como precisavam seguir os alimentos, não tinham moradia fixa. Nas regiões frias, transformavam peles de animais em vestimentas e ossos em adornos. Suas principais ferramentas eram feitas de <strong>pedra lascada</strong>.</p>
+
+      <div class="key-phrase-pt">O nomadismo era o modo de vida dos caçadores-coletores, que se moviam em busca de alimento.</div>
+      <div class="key-phrase-en">Nomadism was the way of life for hunter-gatherers, who moved in search of food.</div>
+
+      <p>As <strong>fontes históricas</strong> desse período são os vestígios materiais e as <strong>pinturas rupestres</strong> — representações visuais feitas nas rochas que mostram cenas de caça e organização social, evidenciando que mesmo em pequenos bandos havia vida coletiva organizada.</p>
+    </div>
+
+    <div class="vocab-box">
+      <div class="vocab-title">📖 Vocabulário · Vocabulary</div>
+      <div class="vocab-grid">
+        <div class="vocab-term">Homo sapiens<div class="vocab-tooltip">Nossa espécie. / Our species.</div></div>
+        <div class="vocab-term">Fósseis<div class="vocab-tooltip">Vestígios preservados em rocha. / Remains preserved in rock.</div></div>
+        <div class="vocab-term">Paleontólogo<div class="vocab-tooltip">Profissional que estuda fósseis. / Fossil scientist.</div></div>
+        <div class="vocab-term">Sítio arqueológico<div class="vocab-tooltip">Local com vestígios históricos. / Site with historical remains.</div></div>
+        <div class="vocab-term">Nomadismo<div class="vocab-tooltip">Viver sem moradia fixa. / Living without a fixed home.</div></div>
+        <div class="vocab-term">Pinturas rupestres<div class="vocab-tooltip">Pinturas em rochas/cavernas. / Rock/cave paintings.</div></div>
+        <div class="vocab-term">Período Paleolítico<div class="vocab-tooltip">Pedra lascada, 2,5 milhões de anos. / Chipped stone era.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ PT S1 -->
+  <div class="quiz-section">
+    <div class="quiz-header">
+      <span class="quiz-icon">🧠</span>
+      <span class="quiz
